@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <transition name="router-fade" mode="out-in">
+    		<router-view></router-view>
+    	</transition>
   </div>
 </template>
 
@@ -13,11 +14,32 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Consolas', '苹方', 'Avenir', Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+}
+body {
+  position: relative;
+  margin: 0;
+}
+a {
+    outline: none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+h1,h2,h3,h4,h5,h6,p,dl,dt,dd {
+    margin: 0
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%
+}
+
+ul,ol,li,dl,dd,dt {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 </style>
