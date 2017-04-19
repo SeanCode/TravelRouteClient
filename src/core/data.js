@@ -8,6 +8,8 @@ export default {
   getToken: getToken,
   setUser: setUser,
   getUser: getUser,
+  setAdmin: setAdmin,
+  getAdmin: getAdmin,
   isGuest: isGuest,
   logout: logout,
   getAll: getAll,
@@ -17,6 +19,7 @@ export default {
 //  cache data
 var tokenData
 var userData
+var adminData
 
 function getKey (key) {
   return Const.DATA.KEY_PREFIX + key
@@ -54,6 +57,18 @@ function getUser () {
     userData = get(Const.DATA.KEY_USER)
   }
   return userData
+}
+
+function setAdmin (admin) {
+  adminData = admin
+  set(Const.DATA.KEY_ADMIN, admin)
+}
+
+function getAdmin () {
+  if (!adminData) {
+    adminData = get(Const.DATA.KEY_ADMIN)
+  }
+  return adminData
 }
 
 function isGuest () {

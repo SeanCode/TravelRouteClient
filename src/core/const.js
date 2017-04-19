@@ -19,6 +19,7 @@ export default {
     KEY_PREFIX: 'chenlei.travel.data',
     KEY_COOKIE: '.cookie',
     KEY_TOKEN: '.token',
-    KEY_USER: '.user'
+    KEY_USER: '.user',
+    KEY_ADMIN: '.admin'
   }
 }
