@@ -16,12 +16,17 @@
               <input autocomplete="off" class="search-input" type="text" name="q" placeholder="我想去...">
               <a class="search-button" href="#" data-cs-l="搜索" role="button"><i class="icon-search"></i></a>
             </div>
-            <div class="search-suggest-panel search-suggest-place hide" style="display: none;">
+            <div class="search-suggest-panel search-suggest-place hide">
               <ul class="suggest-list">
               </ul>
             </div>
             <div class="place-search-hot">
-            </div>
+              <a href="">泰国</a>
+              <a href="">首尔</a>
+              <a href="">重庆</a>
+              <a href="">南京</a>
+              <a href="">云南</a>
+              </div>
         </div>
     </div>
   </div>
@@ -148,6 +153,24 @@
     background: url(../../../assets/header-sprites.png) no-repeat 0 -110px;
     overflow: hidden;
     vertical-align: top;
+  }
+
+  .place-search-hot {
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 16px;
+  }
+
+  .place-search-hot a {
+    margin-right: 10px;
+    color: #fff;
+  }
+  .place-search-hot a:hover {
+    color: #ff9d00;
+  }
+
+  .search-suggest-place .active, .search-suggest-place li:hover, .search-suggest-place .active b, .search-suggest-place li:hover b {
+    color: #ff9d00;
   }
 </style>
 

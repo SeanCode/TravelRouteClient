@@ -1,3 +1,3 @@
 export default {
-    IS_DEBUG: true
+  IS_DEBUG: true
 }

@@ -18,7 +18,6 @@ export default {
 var tokenData
 var userData
 
-
 function getKey (key) {
   return Const.DATA.KEY_PREFIX + key
 }
@@ -72,6 +71,5 @@ function getAll () {
 
 function clear () {
   tokenData = undefined
-  adminData = undefined
   Store.clear()
 }

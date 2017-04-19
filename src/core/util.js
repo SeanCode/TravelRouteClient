@@ -42,7 +42,7 @@ var Base64 = {
     var enc1, enc2, enc3, enc4
     var i = 0
 
-    input = input.replace(/[^A-Za-z0-9\+\/]/g, '')
+    input = input.replace(/[^A-Za-z0-9+/]/g, '')
     while (i < input.length) {
       enc1 = this._keyStr.indexOf(input.charAt(i++))
       enc2 = this._keyStr.indexOf(input.charAt(i++))
@@ -755,7 +755,7 @@ function trim (str, charlist) {
   } else {
     // preg_quote custom list
     charlist += ''
-    whitespace = charlist.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^])/g, '$1')
+    whitespace = charlist.replace(/([[\]().?/*{}+$^])/g, '$1')
   }
 
   l = str.length
@@ -787,7 +787,7 @@ function ltrim (str, charlist) {
   //   returns 1: 'Kevin van Zonneveld    '
 
   charlist = !charlist ? ' \\s\u00A0' : (charlist + '')
-    .replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^])/g, '$1')
+    .replace(/([[\]().?/*{}+$^])/g, '$1')
   var re = new RegExp('^[' + charlist + ']+', 'g')
   return (str + '')
     .replace(re, '')
@@ -805,7 +805,7 @@ function rtrim (str, charlist) {
   //   returns 1: '    Kevin van Zonneveld'
 
   charlist = !charlist ? ' \\s\u00A0' : (charlist + '')
-    .replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^])/g, '\\$1')
+    .replace(/([[\]().?/*{}+$^])/g, '\\$1')
   var re = new RegExp('[' + charlist + ']+$', 'g')
   return (str + '')
     .replace(re, '')

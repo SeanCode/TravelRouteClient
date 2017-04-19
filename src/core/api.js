@@ -8,11 +8,16 @@ import Vue from 'vue'
 export default {
   USER: {
     login: function (username, password) {
-    var hash = 'Basic ' + Util.Base64.encode(name + ':' + password)
-      return post(Const.NET.API.ADMIN_LOGIN, {
+      var hash = 'Basic ' + Util.Base64.encode(username + ':' + password)
+      return post(Const.NET.API.USER_LOGIN, {}, {Authorization: hash}, true)
+    },
+    register: function (username, name, phone, password) {
+      return post(Const.NET.API.USER_REGISTER, {
+        username: username,
         name: name,
+        phone: phone,
         password: password
-      }, {Authorization: hash}, true)
+      })
     }
   }
 }
@@ -26,6 +31,7 @@ function post (api, data, requestHeaders, raw) {
     headers: configurePostHeaders(requestHeaders)
   }).then((response) => {
     if (!response.data.hasOwnProperty('code') || response.data.code !== 0) {
+      Log.e(response.data)
       return Promise.reject(response.data)
     }
     return raw ? response : response.data.data
@@ -35,26 +41,26 @@ function post (api, data, requestHeaders, raw) {
   })
 }
 
-function get (api, params, requestHeaders, raw) {
-  var endPoint = Config.IS_DEBUG ? Const.NET.END_POINT_DEBUG : Const.NET.END_POINT_RELEASE
-  var url = endPoint + Const.NET.API_PATH + api
-  Log.d(url + '?' + transformObjectToUrlencodedData(params))
+// function get (api, params, requestHeaders, raw) {
+//   var endPoint = Config.IS_DEBUG ? Const.NET.END_POINT_DEBUG : Const.NET.END_POINT_RELEASE
+//   var url = endPoint + Const.NET.API_PATH + api
+//   Log.d(url + '?' + transformObjectToUrlencodedData(params))
 
-  return Vue.http.get(url, {
-    params: params,
-    headers: configureGetHeaders(requestHeaders)
-  }).then(function (response) {
-    if (!response.data.hasOwnProperty('code') || response.data.code !== 0) {
-      return Promise.reject(response.data)
-    }
-    return raw ? response : response.data.data
-  }, function (error) {
-    Log.e(error)
-    return Promise.reject(error)
-  })
-}
+//   return Vue.http.get(url, {
+//     params: params,
+//     headers: configureGetHeaders(requestHeaders)
+//   }).then(function (response) {
+//     if (!response.data.hasOwnProperty('code') || response.data.code !== 0) {
+//       return Promise.reject(response.data)
+//     }
+//     return raw ? response : response.data.data
+//   }, function (error) {
+//     Log.e(error)
+//     return Promise.reject(error)
+//   })
+// }
 
-//方便查看参数
+//  方便查看参数
 function transformObjectToUrlencodedData (obj) {
   var p = []
   if (obj) {
@@ -70,19 +76,19 @@ function transformObjectToUrlencodedData (obj) {
   return p.join('&')
 }
 
-//如果已经登录则把token通过header发往server
-function configureGetHeaders (requestHeaders) {
-  if (!requestHeaders) {
-    requestHeaders = {}
-  }
-  if (!requestHeaders.hasOwnProperty('Authorization')) {
-    var token = Data.getToken
-    if (token) {
-      requestHeaders['Authorization'] = 'Basic ' + token
-    }
-  }
-  return requestHeaders
-}
+//  如果已经登录则把token通过header发往server
+// function configureGetHeaders (requestHeaders) {
+//   if (!requestHeaders) {
+//     requestHeaders = {}
+//   }
+//   if (!requestHeaders.hasOwnProperty('Authorization')) {
+//     var token = Data.getToken
+//     if (token) {
+//       requestHeaders['Authorization'] = 'Basic ' + token
+//     }
+//   }
+//   return requestHeaders
+// }
 
 function configurePostHeaders (requestHeaders) {
   if (!requestHeaders) {
@@ -90,7 +96,7 @@ function configurePostHeaders (requestHeaders) {
   }
   requestHeaders['Content-Type'] = 'application/x-www-form-urlencoded'
   if (!requestHeaders.hasOwnProperty('Authorization')) {
-    var token = Data.getToken
+    var token = Data.getToken()
     if (token) {
       requestHeaders['Authorization'] = 'Basic ' + token
     }

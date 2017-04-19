@@ -14,10 +14,10 @@
         <dl class="ft-info-col ft-info-about">
           <dt>关于我们</dt>
           <dd><a rel="nofollow">关于我们</a></dd>
-          <dd><a rel="nofollow">网络信息侵权通知指引</a></dd>
           <dd><a rel="nofollow">隐私政策</a></dd>
           <dd><a rel="nofollow">服务协议</a></dd>
           <dd><a rel="nofollow">联系我们</a></dd>
+          <dd><a rel="nofollow">后台管理</a></dd>
           <dd><a class="joinus highlight" title="蚂蜂窝团队招聘" target="_blank" rel="nofollow">加入我们</a></dd>
         </dl>
         <dl class="ft-info-col ft-info-service">
@@ -154,11 +154,11 @@
   }
 
   .footer .ft-qrcode-weixin {
-    background: url(/images/footer/qr_mfw4.gif) no-repeat;
+    background: url("../../../assets/qr_mfw4.gif") no-repeat;
   }
 
   .footer .ft-qrcode-tejia {
-    background: url(/images/footer/qr_tejia4.png) no-repeat;
+    background: url("../../../assets/qr_tejia4.png") no-repeat;
   }
 
   .footer .ft-info-social {
@@ -184,7 +184,7 @@
     display: inline-block;
     width: 28px;
     height: 28px;
-    background: url(/images/mfw-footer-sprite5.png) no-repeat 0 0;
+    background: url("../../../assets/mfw-footer-sprite5.png") no-repeat 0 0;
     overflow: hidden;
   }
 
