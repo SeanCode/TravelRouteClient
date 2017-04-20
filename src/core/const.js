@@ -38,6 +38,7 @@ export default {
     KEY_COOKIE: '.cookie',
     KEY_TOKEN: '.token',
     KEY_USER: '.user',
-    KEY_ADMIN: '.admin'
+    KEY_ADMIN: '.admin',
+    KEY_ADMIN_TOKEN: '.token.admin'
   }
 }

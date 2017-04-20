@@ -17,7 +17,7 @@
           <dd><a rel="nofollow">隐私政策</a></dd>
           <dd><a rel="nofollow">服务协议</a></dd>
           <dd><a rel="nofollow">联系我们</a></dd>
-          <dd><a rel="nofollow">后台管理</a></dd>
+          <dd><router-link :to="{path: '/admin/login'}">后台管理</router-link></dd>
           <dd><a class="joinus highlight" title="蚂蜂窝团队招聘" target="_blank" rel="nofollow">加入我们</a></dd>
         </dl>
         <dl class="ft-info-col ft-info-service">
@@ -78,6 +78,15 @@
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
+  }
+
+  .footer a {
+    color: #c2c2c2;
+  }
+
+  .footer a:hover {
+    color: #fff;
+    text-decoration: none;
   }
   .footer .ft-info {
     padding: 30px 8px 40px 8px;

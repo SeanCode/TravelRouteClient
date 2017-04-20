@@ -17,6 +17,10 @@ export default {
   font-family: 'Consolas', '苹方', 'Avenir', Helvetica, Arial, sans-serif;
   margin: 0 auto;
 }
+html,body,#app,.wrapper{
+    width:100%;
+    height:100%;
+}
 body {
   position: relative;
   margin: 0;

@@ -1,4 +1,5 @@
 import Router from 'vue-router'
+import Core from '@/core/core'
 import Home from '@/pages/home/Home'
 import HomeIndex from '@/pages/home/Index'
 import HomeDestination from '@/pages/home/Destination'
@@ -9,7 +10,7 @@ import HomeOrderList from '@/pages/home/OrderList'
 import AdminLogin from '@/pages/admin/Login'
 import Admin from '@/pages/admin/Admin'
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -65,3 +66,13 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.path.startsWith('/admin') && !(to.path.startsWith('/admin/login'))) {
+    if (!Core.Data.getAdmin()) {
+      next('/admin/login')
+    }
+  }
+  next()
+})
+export default router
