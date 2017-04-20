@@ -18,6 +18,15 @@ export default {
         phone: phone,
         password: password
       })
+    },
+    update: function (name, username, password, phone, email) {
+      return post(Const.NET.API.USER_UPDATE, {
+        name: name,
+        username: username,
+        password: password,
+        phone: phone,
+        email: email
+      })
     }
   }
 }

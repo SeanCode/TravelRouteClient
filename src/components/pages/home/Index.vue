@@ -21,12 +21,12 @@
               </ul>
             </div>
             <div class="place-search-hot">
-              <a href="">泰国</a>
-              <a href="">首尔</a>
-              <a href="">重庆</a>
-              <a href="">南京</a>
-              <a href="">云南</a>
-              </div>
+              <router-link :to="{ path: 'dest', query: { q: '泰国' }}">泰国</router-link>
+              <router-link :to="{ path: 'dest', query: { q: '首尔' }}">首尔</router-link>
+              <router-link :to="{ path: 'dest', query: { q: '重庆' }}">重庆</router-link>
+              <router-link :to="{ path: 'dest', query: { q: '南京' }}">南京</router-link>
+              <router-link :to="{ path: 'dest', query: { q: '云南' }}">云南</router-link>
+            </div>
         </div>
     </div>
   </div>

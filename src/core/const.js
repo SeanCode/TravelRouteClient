@@ -5,7 +5,8 @@ export default {
     API_PATH: '/api/v1',
     API: {
       USER_LOGIN: '/user/login',
-      USER_REGISTER: '/user/register'
+      USER_REGISTER: '/user/register',
+      USER_UPDATE: '/user/update'
     }
   },
   SYSTEM: {

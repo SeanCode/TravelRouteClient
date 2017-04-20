@@ -2,10 +2,10 @@
 <div>
   <div class="home-header">
     <div class="header-wrap">
-      <div class="home-logo">
+      <router-link :to="{path: '/'}" class="home-logo">
         <img src="../../../assets/logo.png">
-      </div>
-      <div class="home-title">去旅行</div>
+      </router-link>
+      <router-link :to="{path: '/'}"  class="home-title">去旅行</router-link>
       <div class="login-out" v-if="!user">
 		    <a class="weibo-login" title="微博登录" rel="nofollow"></a>
 		    <a class="qq-login" title="QQ登录" rel="nofollow"></a>
@@ -88,6 +88,12 @@
         switch (command) {
           case '2':
             this.logout()
+            break
+          case '0':
+            this.$router.push('/home/user')
+            break
+          case '1':
+            this.$router.push('/home/order')
             break
           default:
             break

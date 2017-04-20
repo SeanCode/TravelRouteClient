@@ -86,5 +86,7 @@ function getAll () {
 
 function clear () {
   tokenData = undefined
+  adminData = undefined
+  userData = undefined
   Store.clear()
 }

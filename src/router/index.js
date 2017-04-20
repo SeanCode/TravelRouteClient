@@ -24,17 +24,17 @@ export default new Router({
           component: HomeIndex
         },
         {
-          path: 'dest/{name}',
+          path: 'dest',
           name: 'HomeDestination',
           component: HomeDestination
         },
         {
-          path: 'route/{dest_id}',
+          path: 'route/:destId',
           name: 'HomeRouteList',
           component: HomeRouteList
         },
         {
-          path: 'route/{dest_id}/{route_id}',
+          path: 'route/:destId/:routeId',
           name: 'HomeRouteDetail',
           component: HomeRouteDetail
         },
