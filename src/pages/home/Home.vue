@@ -7,9 +7,9 @@
 </template>
 
 <script>
-  import HomeHeader from '../../layout/home/Header'
-  import HomeContent from '../../layout/home/Content'
-  import HomeFooter from '../../layout/home/Footer'
+  import HomeHeader from '@/components/layout/home/Header'
+  import HomeContent from '@/components/layout/home/Content'
+  import HomeFooter from '@/components/layout/home/Footer'
 
   export default {
     components: {

@@ -204,7 +204,7 @@
     margin-top: 6px;
     width: 24px;
     height: 24px;
-    background-image: url(../../../assets/header-sprites3.png);
+    background-image: url(../../assets/header-sprites3.png);
     background-position: 0 -110px!important;
     overflow: hidden;
     vertical-align: top;

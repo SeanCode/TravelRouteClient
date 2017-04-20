@@ -5,7 +5,7 @@
         <div class="cover">
           <div class="bigimg">
             <div class="shade"></div>
-            <img src="../../../assets/bg1.jpg" style="margin: 0; width: 100%; height: auto;">
+            <img src="../../assets/bg1.jpg" style="margin: 0; width: 100%; height: auto;">
           </div>
         </div>
         <div class="show-shadow"></div>
@@ -150,7 +150,7 @@
     margin-top: 11px;
     width: 24px;
     height: 24px;
-    background: url(../../../assets/header-sprites.png) no-repeat 0 -110px;
+    background: url(../../assets/header-sprites.png) no-repeat 0 -110px;
     overflow: hidden;
     vertical-align: top;
   }

@@ -47,7 +47,7 @@
 </style>
 
 <script>
-  import Core from '../../../core/core'
+  import Core from '../../core/core'
 
   export default {
     data () {

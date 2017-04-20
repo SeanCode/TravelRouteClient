@@ -150,7 +150,7 @@
   .mark {
     width: 21px;
     height: 18px;
-    background: url(../../../assets/list_sprites7.png) no-repeat -72px 0;
+    background: url(../../assets/list_sprites7.png) no-repeat -72px 0;
     display: inline-block;
     margin-right: 13px;
   }

@@ -1,11 +1,13 @@
 import Router from 'vue-router'
-import Home from '@/components/pages/home/Home'
-import HomeIndex from '@/components/pages/home/Index'
-import HomeDestination from '@/components/pages/home/Destination'
-import HomeRouteList from '@/components/pages/home/RouteList'
-import HomeRouteDetail from '@/components/pages/home/RouteDetail'
-import HomeUser from '@/components/pages/home/User'
-import HomeOrderList from '@/components/pages/home/OrderList'
+import Home from '@/pages/home/Home'
+import HomeIndex from '@/pages/home/Index'
+import HomeDestination from '@/pages/home/Destination'
+import HomeRouteList from '@/pages/home/RouteList'
+import HomeRouteDetail from '@/pages/home/RouteDetail'
+import HomeUser from '@/pages/home/User'
+import HomeOrderList from '@/pages/home/OrderList'
+import AdminLogin from '@/pages/admin/Login'
+import Admin from '@/pages/admin/Admin'
 
 export default new Router({
   routes: [
@@ -16,6 +18,7 @@ export default new Router({
     {
       path: '/home',
       name: 'Home',
+      redirect: '/home/index',
       component: Home,
       children: [
         {
@@ -49,6 +52,16 @@ export default new Router({
           component: HomeOrderList
         }
       ]
+    },
+    {
+      path: '/admin/login',
+      name: 'AdminLogin',
+      component: AdminLogin
+    },
+    {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin
     }
   ]
 })
