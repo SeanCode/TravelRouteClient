@@ -157,6 +157,9 @@ function post (api, data, requestHeaders, raw) {
     return raw ? response : response.data.data
   }, function (error) {
     Log.e(error)
+    if (!error.message) {
+      error.message = error.statusText
+    }
     return Promise.reject(error)
   })
 }
@@ -176,6 +179,9 @@ function get (api, params, requestHeaders, raw) {
     return raw ? response : response.data.data
   }, function (error) {
     Log.e(error)
+    if (!error.message) {
+      error.message = error.statusText
+    }
     return Promise.reject(error)
   })
 }
@@ -202,7 +208,7 @@ function configureGetHeaders (requestHeaders) {
     requestHeaders = {}
   }
   if (!requestHeaders.hasOwnProperty('Authorization')) {
-    var token = Data.getToken
+    var token = Data.getToken()
     if (token) {
       requestHeaders['Authorization'] = 'Basic ' + token
     }

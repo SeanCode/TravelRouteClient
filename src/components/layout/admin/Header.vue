@@ -1,6 +1,15 @@
 <template>
   <div class="admin-header">
-    <div class="logo">后台管理系统</div>
+    <div class="logo" @click="goToAdminIndex()">后台管理系统</div>
+    <el-dropdown class="admin-user-dropdown" @command="handleCommand">
+      <span class="el-dropdown-link">
+        {{user.name}}<i class="el-icon-caret-bottom el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="0">个人信息</el-dropdown-item>
+        <el-dropdown-item command="1">退出</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </div>
 </template>
 
@@ -19,9 +28,45 @@
     float: left;
     width:250px;
     text-align: center;
+    cursor: pointer;
+  }
+  .admin-user-dropdown {
+    float: right;
+    padding: 0 20px;
+    cursor: pointer;
   }
 </style>
 
 <script>
+  import Core from '@/core/core'
 
+  export default {
+    data () {
+      return {
+        user: Core.Data.getUser()
+      }
+    },
+    methods: {
+      goToAdminIndex () {
+        this.$router.push('/admin')
+      },
+      handleCommand (command) {
+        switch (command) {
+          case '0':
+            break
+          case '1':
+            this.logout()
+            break
+          default:
+            break
+        }
+      },
+      logout () {
+        this.user = undefined
+        Core.Data.setUser(undefined)
+        Core.Data.setToken(undefined)
+        this.$router.push('/admin/login')
+      }
+    }
+  }
 </script>

@@ -44,11 +44,14 @@
           if (valid) {
             Core.Api.USER.login(this.ruleForm.username, this.ruleForm.password).then((response) => {
               var userTemp = response.data.data['user']
+              if (userTemp.role === 'ROLE_USER') {
+                this.$message.error('登录失败：未经授权！')
+                return
+              }
               this.$message.success('登录成功, ' + this.ruleForm.username)
-              console.log(userTemp)
-              Core.Data.setAdmin(userTemp)
+              Core.Data.setUser(userTemp)
               this.user = userTemp
-              Core.Data.setAdminToken(Core.Util.Base64.encode(this.ruleForm.username + ':' + this.ruleForm.password))
+              Core.Data.setToken(Core.Util.Base64.encode(this.ruleForm.username + ':' + this.ruleForm.password))
               this.$router.push('/admin')
             }, (error) => {
               this.$message.error('登录失败：' + error.message)

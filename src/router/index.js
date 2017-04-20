@@ -9,6 +9,10 @@ import HomeUser from '@/pages/home/User'
 import HomeOrderList from '@/pages/home/OrderList'
 import AdminLogin from '@/pages/admin/Login'
 import Admin from '@/pages/admin/Admin'
+import AdminOrder from '@/pages/admin/Order'
+import AdminUser from '@/pages/admin/User'
+import AdminDestination from '@/pages/admin/Destination'
+import AdminRoute from '@/pages/admin/Route'
 
 const router = new Router({
   routes: [
@@ -62,14 +66,37 @@ const router = new Router({
     {
       path: '/admin',
       name: 'Admin',
-      component: Admin
+      component: Admin,
+      children: [
+        {
+          path: 'order',
+          name: 'AdminOrder',
+          component: AdminOrder
+        },
+        {
+          path: 'user/:role',
+          name: 'AdminUser',
+          component: AdminUser
+        },
+        {
+          path: 'dest',
+          name: 'AdminDestination',
+          component: AdminDestination
+        },
+        {
+          path: 'route',
+          name: 'AdminRoute',
+          component: AdminRoute
+        }
+      ]
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   if (to.path.startsWith('/admin') && !(to.path.startsWith('/admin/login'))) {
-    if (!Core.Data.getAdmin()) {
+    var admin = Core.Data.getUser()
+    if (!admin || admin.role === 'ROLE_USER') {
       next('/admin/login')
     }
   }

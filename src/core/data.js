@@ -8,10 +8,6 @@ export default {
   getToken: getToken,
   setUser: setUser,
   getUser: getUser,
-  setAdmin: setAdmin,
-  getAdmin: getAdmin,
-  setAdminToken: setAdminToken,
-  getAdminToken: getAdminToken,
   isGuest: isGuest,
   logout: logout,
   getAll: getAll,
@@ -21,8 +17,6 @@ export default {
 //  cache data
 var tokenData
 var userData
-var adminData
-var adminTokenData
 
 function getKey (key) {
   return Const.DATA.KEY_PREFIX + key
@@ -62,30 +56,6 @@ function getUser () {
   return userData
 }
 
-function setAdmin (admin) {
-  adminData = admin
-  set(Const.DATA.KEY_ADMIN, admin)
-}
-
-function getAdmin () {
-  if (!adminData) {
-    adminData = get(Const.DATA.KEY_ADMIN)
-  }
-  return adminData
-}
-
-function setAdminToken (token) {
-  adminTokenData = token
-  set(Const.DATA.KEY_ADMIN_TOKEN, token)
-}
-
-function getAdminToken () {
-  if (!adminTokenData) {
-    adminTokenData = get(Const.DATA.KEY_ADMIN_TOKEN)
-  }
-  return adminTokenData
-}
-
 function isGuest () {
   return !getToken()
 }
@@ -101,7 +71,6 @@ function getAll () {
 
 function clear () {
   tokenData = undefined
-  adminData = undefined
   userData = undefined
   Store.clear()
 }
