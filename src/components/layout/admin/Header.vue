@@ -6,8 +6,9 @@
         {{user.name}}<i class="el-icon-caret-bottom el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item command="0">个人信息</el-dropdown-item>
-        <el-dropdown-item command="1">退出</el-dropdown-item>
+        <el-dropdown-item command="0">网站首页</el-dropdown-item>
+        <el-dropdown-item command="1">个人信息</el-dropdown-item>
+        <el-dropdown-item command="2">退出</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
@@ -53,8 +54,11 @@
       handleCommand (command) {
         switch (command) {
           case '0':
+            this.$router.push('/')
             break
           case '1':
+            break
+          case '2':
             this.logout()
             break
           default:
