@@ -21,12 +21,12 @@
         <ul>
           <li v-for="item in destList">
             <div class="search-item-pic">
-              <img :src="item.img">
+              <img :src="getImgUrl(item.img)">
             </div>
             <div class="search-item-text">
               <h3><router-link :to="{path: '/home/route/'+item.id }">{{item.name}}</router-link></h3>
               <p class="search-item-desc">{{item.intro}}</p>
-              <p class="search-item-time">{{item.time}}</p>
+              <p class="search-item-time">{{item.update_time_formatted}}</p>
             </div>
             <div class="clear-both"></div>
           </li>
@@ -39,83 +39,50 @@
 </template>
 
 <script>
+  import Core from '@/core/core'
+
   export default {
     data () {
       return {
         q: '',
         query: '',
-        destList: [
-          {
-            id: 1,
-            name: '泰国6日游(玩遍这些才算来过)',
-            intro: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            info: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            dest: '泰国',
-            img: 'http://n3-q.mafengwo.net/s8/M00/0D/C0/wKgBpVYqFtOAF0maAAu81_RSAtI65.jpeg?imageMogr2%2Fthumbnail%2F%21300x180r%2Fgravity%2FCenter%2Fcrop%2F%21300x180%2Fquality%2F90',
-            time: '2017-04-20'
-          },
-          {
-            id: 2,
-            name: '泰国6日游(玩遍这些才算来过)',
-            intro: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            info: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            dest: '泰国',
-            img: 'http://n3-q.mafengwo.net/s8/M00/0D/C0/wKgBpVYqFtOAF0maAAu81_RSAtI65.jpeg?imageMogr2%2Fthumbnail%2F%21300x180r%2Fgravity%2FCenter%2Fcrop%2F%21300x180%2Fquality%2F90',
-            time: '2017-04-20'
-          },
-          {
-            id: 3,
-            name: '泰国6日游(玩遍这些才算来过)',
-            intro: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            info: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            dest: '泰国',
-            img: 'http://n3-q.mafengwo.net/s8/M00/0D/C0/wKgBpVYqFtOAF0maAAu81_RSAtI65.jpeg?imageMogr2%2Fthumbnail%2F%21300x180r%2Fgravity%2FCenter%2Fcrop%2F%21300x180%2Fquality%2F90',
-            time: '2017-04-20'
-          },
-          {
-            name: '泰国6日游(玩遍这些才算来过)',
-            intro: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            info: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            dest: '泰国',
-            img: 'http://n3-q.mafengwo.net/s8/M00/0D/C0/wKgBpVYqFtOAF0maAAu81_RSAtI65.jpeg?imageMogr2%2Fthumbnail%2F%21300x180r%2Fgravity%2FCenter%2Fcrop%2F%21300x180%2Fquality%2F90',
-            time: '2017-04-20'
-          },
-          {
-            id: 4,
-            name: '泰国6日游(玩遍这些才算来过)',
-            intro: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            info: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            dest: '泰国',
-            img: 'http://n3-q.mafengwo.net/s8/M00/0D/C0/wKgBpVYqFtOAF0maAAu81_RSAtI65.jpeg?imageMogr2%2Fthumbnail%2F%21300x180r%2Fgravity%2FCenter%2Fcrop%2F%21300x180%2Fquality%2F90',
-            time: '2017-04-20'
-          },
-          {
-            id: 5,
-            name: '泰国6日游(玩遍这些才算来过)',
-            intro: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            info: '舒缓压力，也可以感受普吉岛疯狂的夜生活，还可以潜入水下与海洋的精灵们亲密接触，同时，你也可以看场独具泰国特色的表演，...',
-            dest: '泰国',
-            img: 'http://n3-q.mafengwo.net/s8/M00/0D/C0/wKgBpVYqFtOAF0maAAu81_RSAtI65.jpeg?imageMogr2%2Fthumbnail%2F%21300x180r%2Fgravity%2FCenter%2Fcrop%2F%21300x180%2Fquality%2F90',
-            time: '2017-04-20'
-          }
-        ],
+        destList: [],
         currentPage: 1,
         total: 50
       }
     },
+    watch: {
+      // 如果路由有变化，会再次执行该方法
+      '$route': 'refresh'
+    },
     methods: {
       search (q) { //  重新搜索并且将本页push到浏览器记录
         this.$router.push('/home/dest?q=' + q)
-        this.query = q
-        // network
       },
       handleCurrentChange (page) { // 分页请求
         this.currentPage = page
         console.log(`当前页: ${page}`)
+      },
+      getDestList (q, page) {
+        Core.Api.DESTINATION.query(q, page - 1).then((data) => {
+          this.destList = data.dest_list
+          this.currentPage = data.number + 1
+          this.total = data.totalElements
+        })
+      },
+      refresh () {
+        this.query = this.q = this.$route.query.q
+        this.getDestList(this.q, 1)
+      },
+      getImgUrl (url) {
+        if (url.startsWith('http')) {
+          return url
+        }
+        return Core.Const.NET.IMG_URL + url
       }
     },
     mounted () {
-      this.query = this.q = this.$route.query.q
+      this.refresh()
     }
   }
 </script>
@@ -270,9 +237,10 @@
       color: #ff9d00;
   }
   .search-item-desc {
-    max-height: 40px;
+    max-height: 60px;
     margin-bottom: 4px;
     overflow: hidden;
+    text-overflow:ellipsis;
   }
   .clear-both {
     clear: both

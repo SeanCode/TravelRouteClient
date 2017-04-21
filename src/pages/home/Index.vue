@@ -21,6 +21,7 @@
               </ul>
             </div>
             <div class="place-search-hot">
+              <router-link :to="{ path: 'dest', query: { q: '苏梅岛' }}">苏梅岛</router-link>
               <router-link :to="{ path: 'dest', query: { q: '泰国' }}">泰国</router-link>
               <router-link :to="{ path: 'dest', query: { q: '首尔' }}">首尔</router-link>
               <router-link :to="{ path: 'dest', query: { q: '重庆' }}">重庆</router-link>

@@ -114,13 +114,11 @@ export default {
     }
   },
   ORDER: {
-    createOrder: function (destId, routeId, beginTime, count, money, username, phone, note) {
+    createOrder: function (routeId, beginTime, count, username, phone, note) {
       return post(Const.NET.API.ORDER_CREATE, {
-        dest_id: destId,
         route_id: routeId,
         begin_time: beginTime,
         count: count,
-        money: money,
         username: username,
         phone: phone,
         note: note

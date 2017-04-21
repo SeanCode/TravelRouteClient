@@ -176,7 +176,7 @@
         if (url.startsWith('http')) {
           return url
         }
-        return 'http://' + Core.Const.NET.IMG_URL + url
+        return Core.Const.NET.IMG_URL + url
       }
     },
     mounted () {

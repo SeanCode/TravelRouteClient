@@ -100,8 +100,7 @@
       '$route': 'refresh'
     },
     mounted () {
-      this.getRole()
-      this.getUserList(1)
+      this.refresh()
     },
     methods: {
       refresh () {

@@ -114,7 +114,7 @@
         if (file.name.startsWith('http')) {
           window.open(file.name, '_blank')
         } else {
-          window.open('http://' + Core.Const.NET.IMG_URL + file.name, '_blank')
+          window.open(Core.Const.NET.IMG_URL + file.name, '_blank')
         }
       }
     },

@@ -3,7 +3,7 @@ export default {
     END_POINT_RELEASE: 'http://localhost:8080',
     END_POINT_DEBUG: 'http://localhost:8080',
     API_PATH: '/api/v1',
-    IMG_URL: 'localhost/static/img/',
+    IMG_URL: 'http://localhost/static/img/',
     API: {
       USER_LOGIN: '/user/login',
       USER_REGISTER: '/user/register',

@@ -140,7 +140,6 @@
     },
     mounted () {
       this.getOrderList(1)
-      this.total = this.orderList.length
     }
   }
 </script>

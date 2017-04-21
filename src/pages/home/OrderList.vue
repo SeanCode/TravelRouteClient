@@ -14,7 +14,7 @@
                 <span>{{ props.row.id }}</span>
               </el-form-item>
               <el-form-item label="目的地">
-                <span>{{ props.row.destination.name }}</span>
+                <span>{{ props.row.destination.dest }}</span>
               </el-form-item>
               <el-form-item label="订单金额">
                 <span>{{ props.row.money }}</span>
@@ -52,26 +52,32 @@
           prop="count">
         </el-table-column>
         <el-table-column
+          label="目的地"
+          prop="destination.dest">
+        </el-table-column>
+        <el-table-column
           label="金额"
           prop="money">
         </el-table-column>
-        <el-table-column
-          label="状态"
-          prop="status">
+        <el-table-column label="状态">
+          <template scope="scope">
+            <el-tag type="primary">{{getStatus(scope.row.status)}}</el-tag>
+          </template>
         </el-table-column>
         <el-table-column label="操作">
           <template scope="scope">
             <el-button
               size="small"
               type="warning"
-              @click="editOrder(scope.$index, scope.row)">取消</el-button>
+              @click="cancelOrder(scope.$index, scope.row)" v-if="scope.row.status === 0">取消</el-button>
             <el-button
               size="small"
               type="danger"
-              @click="deleteOrder(scope.$index, scope.row)">删除</el-button>
+              @click="deleteOrder(scope.$index, scope.row)" v-if="scope.row.status === 0">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
+      <el-pagination @current-change="handleCurrentChange" small layout="total, prev, pager, next" :total="total" :current-page="currentPage" style="margin: 10px 0;"></el-pagination>
     </div>
   </div>
 </template>
@@ -107,40 +113,65 @@
 </style>
 
 <script>
+  import Core from '@/core/core'
+
   export default {
     data () {
       return {
-        orderList: [
-          {
-            id: 1,
-            username: 'cheney',
-            phone: '13164403207',
-            note: '这是备注',
-            status: 0,
-            create_time: '2017-04-20',
-            update_time: '2017-04-20',
-            count: 2,
-            money: 7900,
-            destination: {
-              name: '苏梅岛'
-            },
-            route: {
-              name: '为所欲为第一站——去苏梅晒出小麦色！（清迈-苏梅-涛岛-满月趴）'
-            },
-            user: {
-              name: 'cheneyang'
-            }
-          }
-        ]
+        orderList: [],
+        currentPage: 1,
+        total: 0
       }
     },
     methods: {
-      editOrder (index, order) {
-        console.log('edit: ' + index + '--' + order)
+      handleCurrentChange (page) { // 分页请求
+        this.getOrderList(page)
+      },
+      cancelOrder (index, order) {
+        this.updateOrderStatus(order, -1)
       },
       deleteOrder (index, order) {
-        console.log('delete: ' + index + '--' + order)
+        Core.Api.ORDER.deleteOrder(order.id).then(() => {
+          this.$message.success('订单删除成功')
+          this.getOrderList(1)
+        }, () => {
+          this.$message.error('订单删除失败')
+        })
+      },
+      getOrderList (page) {
+        Core.Api.ORDER.getListCreated(page - 1).then((data) => {
+          this.orderList = data.order_list
+          this.currentPage = data.number + 1
+          this.total = data.totalElements
+        }, () => {
+          this.$message.error('获取订单列表失败')
+        })
+      },
+      getStatus (status) {
+        switch (status) {
+          case 0:
+            return '待审核'
+          case 1:
+            return '审核成功'
+          case -1:
+            return '已取消'
+          case -2:
+            return '已回绝'
+          default:
+            return '未知'
+        }
+      },
+      updateOrderStatus (order, status) {
+        Core.Api.ORDER.updateStatus(order.id, status).then(() => {
+          this.$message.success('操作成功')
+          this.getOrderList(this.currentPage)
+        }, (error) => {
+          this.$message.error('操作失败: ' + error.message)
+        })
       }
+    },
+    mounted () {
+      this.getOrderList(1)
     }
   }
 </script>
