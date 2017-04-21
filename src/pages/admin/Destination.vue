@@ -37,8 +37,8 @@
               </el-form-item>
               <el-form-item label="图片">
                 <el-carousel style="width: 400px; height: 260px">
-                  <el-carousel-item v-for="(item, index) in props.row.img_list" :key=index>
-                    <img :src="item" style="width: 400px; height: 260px">
+                  <el-carousel-item v-for="(url, index) in props.row.img_list" :key=index>
+                    <img :src="getImgUrl(url)" style="width: 400px; height: 260px">
                   </el-carousel-item>
                 </el-carousel>
               </el-form-item>
@@ -128,6 +128,12 @@
       },
       editDest (dest) {
         this.$router.push('/admin/dest/save/' + dest.id)
+      },
+      getImgUrl (url) {
+        if (url.startsWith('http')) {
+          return url
+        }
+        return Core.Const.NET.IMG_URL + url
       }
     },
     mounted () {

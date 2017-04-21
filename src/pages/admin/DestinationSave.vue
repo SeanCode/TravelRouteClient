@@ -76,7 +76,7 @@
       },
       saveDest () {
         if (this.destForm.name === undefined || this.destForm.intro === undefined || this.destForm.info === undefined || this.destForm.dest === undefined) {
-          this.$message.error('参数不完整')
+          this.$message.error('信息不完整')
           return
         }
         // console.log(this.imgList)
@@ -133,7 +133,6 @@
     margin: 0;
   }
   .admin-dest-save-box {
-    width: 600px;
     margin: 0 auto;
   }
 

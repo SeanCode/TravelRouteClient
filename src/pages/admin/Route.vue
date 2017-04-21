@@ -48,10 +48,13 @@
                     <span>{{ props.row.dest.dest }}</span>
                   </el-form-item>
                   <el-form-item label="简介">
-                    <span>{{ props.row.intro }}</span>
+                    <div v-html="props.row.intro"></div>
                   </el-form-item>
                   <el-form-item label="介绍">
-                    <span>{{ props.row.info }}</span>
+                    <div v-html="props.row.info"></div>
+                  </el-form-item>
+                  <el-form-item label="须知">
+                    <div v-html="props.row.notice"></div>
                   </el-form-item>
                   <el-form-item label="创建时间">
                     <span>{{ props.row.create_time_formatted }}</span>
@@ -61,9 +64,9 @@
                   </el-form-item>
                   <el-form-item label="图片">
                     <el-carousel style="width: 400px; height: 260px">
-                      <el-carousel-item v-for="(item, index) in props.row.img_list" :key=index>
-                        <img :src="item" style="width: 400px; height: 260px">
-                      </el-carousel-item>
+                  <el-carousel-item v-for="(url, index) in props.row.img_list" :key=index>
+                    <img :src="getImgUrl(url)" style="width: 400px; height: 260px">
+                  </el-carousel-item>
                     </el-carousel>
                   </el-form-item>
                 </el-form>
@@ -168,6 +171,12 @@
       },
       editRoute (route) {
         this.$router.push('/admin/route/save/' + route.id)
+      },
+      getImgUrl (url) {
+        if (url.startsWith('http')) {
+          return url
+        }
+        return 'http://' + Core.Const.NET.IMG_URL + url
       }
     },
     mounted () {
