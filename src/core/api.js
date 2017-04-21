@@ -52,9 +52,15 @@ export default {
     }
   },
   DESTINATION: {
-    query: function (dest) {
+    query: function (dest, page) {
+      return get(Const.NET.API.DEST_QUERY, {
+        dest: dest,
+        page: page
+      })
+    },
+    getDestList: function (page) {
       return get(Const.NET.API.DEST_LIST, {
-        dest: dest
+        page: page
       })
     },
     getDestDetail: function (id) {
@@ -79,7 +85,7 @@ export default {
     }
   },
   ROUTE: {
-    getRouteList: function (destId) {
+    getRouteList: function (destId, page) {
       return get(Const.NET.API.ROUTE_LIST, {
         dest_id: destId
       })

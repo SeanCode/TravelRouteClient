@@ -120,8 +120,8 @@
           img: [
             'http://b2-q.mafengwo.net/s10/M00/CC/69/wKgBZ1jsjKOAFAnfAAf9t32VNSE877.png?imageMogr2%2Fthumbnail%2F%21440x260r%2Fgravity%2FCenter%2Fcrop%2F%21440x260%2Fquality%2F100',
             'http://c3-q.mafengwo.net/s10/M00/CC/77/wKgBZ1jsjKyASN2_AAsWu_SIy1s423.png?imageMogr2%2Fthumbnail%2F%21440x260r%2Fgravity%2FCenter%2Fcrop%2F%21440x260%2Fquality%2F100',
-            'http://b3-q.mafengwo.net/s9/M00/EA/85/wKgBs1gTkgWATDpOAArOLkZ0hW849.jpeg?imageView2%2F2%2Fw%2F300%2Fh%2F5000%2Fq%2F90',
-            'https://b3-q.mafengwo.net/s9/M00/E4/55/wKgBs1gTeVeAaXkiAAzvmp-Deuw20.jpeg?imageView2%2F2%2Fw%2F1360%2Fq%2F90'],
+            'http://b3-q.mafengwo.net/s9/M00/EA/85/wKgBs1gTkgWATDpOAArOLkZ0hW849.jpeg?imageMogr2%2Fthumbnail%2F%21440x260r%2Fgravity%2FCenter%2Fcrop%2F%21440x260%2Fquality%2F100',
+            'https://b3-q.mafengwo.net/s9/M00/E4/55/wKgBs1gTeVeAaXkiAAzvmp-Deuw20.jpeg?imageMogr2%2Fthumbnail%2F%21440x260r%2Fgravity%2FCenter%2Fcrop%2F%21440x260%2Fquality%2F100'],
           price: '1000',
           info: '此航班仅供参考，对应的航班时间均为当地时间，低价折扣机票存在航班调整的可能（包括航空公司、航班号、起飞时间的变化等），故机票情况以最终电子客票为准。<p><strong>费用包含</strong></P><p>1. 交通：重庆直飞甲米6天往返经济舱机票，甲米-苏梅岛往返车船联运。</P><p>2. 酒店：1晚甲米市区酒店+4晚苏梅岛海边度假酒店（酒店标准）。</P><p>3. 早餐：酒店自助早餐。</p>',
           notice: '退改政策:此产品为二次确认产品，库存确认成功后不得变更、不得退款，敬请谅解。',

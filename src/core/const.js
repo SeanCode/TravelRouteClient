@@ -3,6 +3,7 @@ export default {
     END_POINT_RELEASE: 'http://localhost:8080',
     END_POINT_DEBUG: 'http://localhost:8080',
     API_PATH: '/api/v1',
+    IMG_URL: 'localhost/static/img/',
     API: {
       USER_LOGIN: '/user/login',
       USER_REGISTER: '/user/register',
@@ -10,7 +11,8 @@ export default {
       USER_ADD_ADMIN: '/user/add-admin',
       USER_LIST: '/user/list',
       USER_DELETE: '/user/delete',
-      DEST_LIST: '/dest',
+      DEST_QUERY: '/dest/query',
+      DEST_LIST: '/dest/list',
       DEST_DETAIL: '/dest/{id}',
       DEST_SAVE: '/dest/save',
       DEST_DELETE: '/dest/delete',

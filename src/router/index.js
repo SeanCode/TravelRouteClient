@@ -12,7 +12,9 @@ import Admin from '@/pages/admin/Admin'
 import AdminOrder from '@/pages/admin/Order'
 import AdminUser from '@/pages/admin/User'
 import AdminDestination from '@/pages/admin/Destination'
+import AdminDestinationSave from '@/pages/admin/DestinationSave'
 import AdminRoute from '@/pages/admin/Route'
+import AdminRouteSave from '@/pages/admin/RouteSave'
 
 const router = new Router({
   routes: [
@@ -84,9 +86,29 @@ const router = new Router({
           component: AdminDestination
         },
         {
+          path: 'dest/save',
+          name: 'AdminDestinationAdd',
+          component: AdminDestinationSave
+        },
+        {
+          path: 'dest/save/:id',
+          name: 'AdminDestinationSave',
+          component: AdminDestinationSave
+        },
+        {
           path: 'route',
           name: 'AdminRoute',
           component: AdminRoute
+        },
+        {
+          path: 'route/save',
+          name: 'AdminRouteAdd',
+          component: AdminRouteSave
+        },
+        {
+          path: 'route/save/:id',
+          name: 'AdminRouteSave',
+          component: AdminRouteSave
         }
       ]
     }

@@ -2,7 +2,7 @@
   <div class="home-user">
     <div class="home-dest-header"></div>
     <div class="home-user-main">
-      <el-form ref="userForm" class="home-user-form" :label-position="labelPosition" :model="userForm" label-width="80px">
+      <el-form ref="userForm" class="home-user-form" label-position="left" :model="userForm" label-width="80px">
         <el-form-item label="昵称">
           <el-input v-model="userForm.username"></el-input>
         </el-form-item>
@@ -53,7 +53,6 @@
     data () {
       return {
         userForm: {},
-        labelPosition: 'left',
         loading: false
       }
     },

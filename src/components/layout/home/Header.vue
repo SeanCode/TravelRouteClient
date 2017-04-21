@@ -27,7 +27,7 @@
     </div>
   </div>
           <el-dialog title="登录" v-model="showLogin" size="tiny">
-            <el-form :label-position="labelPosition" :model="userForm" label-width="60px">
+            <el-form label-position="left" :model="userForm" label-width="60px">
                 <el-form-item prop="username" label="用户名">
                     <el-input v-model="userForm.username" placeholder="用户名"></el-input>
                 </el-form-item>
@@ -40,7 +40,7 @@
             </div>
           </el-dialog>
           <el-dialog title="注册" v-model="showRegeister" size="tiny">
-            <el-form :label-position="labelPosition" :model="userForm" label-width="80px">
+            <el-form label-position="left" :model="userForm" label-width="80px">
                 <el-form-item prop="username" label="用户名">
                     <el-input v-model="userForm.username" placeholder="用户名"></el-input>
                 </el-form-item>
@@ -73,7 +73,6 @@
   export default {
     data () {
       return {
-        labelPosition: 'left',
         showLogin: false,
         showRegeister: false,
         user: Core.Data.getUser(),

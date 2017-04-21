@@ -31,10 +31,10 @@
                 <span>{{ props.row.phone }}</span>
               </el-form-item>
               <el-form-item label="创建时间">
-                <span>{{ props.row.create_time }}</span>
+                <span>{{ props.row.create_time_formatted }}</span>
               </el-form-item>
               <el-form-item label="更新时间">
-                <span>{{ props.row.update_time }}</span>
+                <span>{{ props.row.update_time_formatted }}</span>
               </el-form-item>
               <el-form-item label="备注">
                 <span>{{ props.row.note }}</span>
@@ -91,28 +91,7 @@
   export default {
     data () {
       return {
-        orderList: [
-          // {
-          //   id: 1,
-          //   username: 'cheney',
-          //   phone: '13164403207',
-          //   note: '这是备注',
-          //   status: 0,
-          //   create_time: '2017-04-20',
-          //   update_time: '2017-04-20',
-          //   count: 2,
-          //   money: 7900,
-          //   destination: {
-          //     name: '苏梅岛'
-          //   },
-          //   route: {
-          //     name: '为所欲为第一站——去苏梅晒出小麦色！（清迈-苏梅-涛岛-满月趴）'
-          //   },
-          //   user: {
-          //     name: 'cheneyang'
-          //   }
-          // }
-        ],
+        orderList: [],
         currentPage: 1,
         total: 0
       }

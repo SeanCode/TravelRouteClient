@@ -29,10 +29,10 @@
                 <span>{{ props.row.phone }}</span>
               </el-form-item>
               <el-form-item label="创建时间">
-                <span>{{ props.row.create_time }}</span>
+                <span>{{ props.row.create_time_formatted }}</span>
               </el-form-item>
               <el-form-item label="更新时间">
-                <span>{{ props.row.update_time }}</span>
+                <span>{{ props.row.update_time_formatted }}</span>
               </el-form-item>
               <el-form-item label="备注">
                 <span>{{ props.row.note }}</span>

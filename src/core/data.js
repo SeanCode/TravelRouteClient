@@ -1,5 +1,6 @@
 import Store from 'store'
 import Const from './const'
+import Config from './config'
 
 export default {
   set: set,
@@ -11,7 +12,8 @@ export default {
   isGuest: isGuest,
   logout: logout,
   getAll: getAll,
-  clear: clear
+  clear: clear,
+  getUploadUrl: getUploadUrl
 }
 
 //  cache data
@@ -73,4 +75,9 @@ function clear () {
   tokenData = undefined
   userData = undefined
   Store.clear()
+}
+
+function getUploadUrl () {
+  var endPoint = Config.IS_DEBUG ? Const.NET.END_POINT_DEBUG : Const.NET.END_POINT_RELEASE
+  return endPoint + Const.NET.API_PATH + Const.NET.API.UPLOAD_IMG
 }
