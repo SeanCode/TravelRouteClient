@@ -11,11 +11,12 @@ export default {
       var hash = 'Basic ' + Util.Base64.encode(username + ':' + password)
       return post(Const.NET.API.USER_LOGIN, {}, {Authorization: hash}, true)
     },
-    register: function (username, name, phone, password) {
+    register: function (username, name, phone, password, email) {
       return post(Const.NET.API.USER_REGISTER, {
         username: username,
         name: name,
         phone: phone,
+        email: email,
         password: password
       })
     },
@@ -28,11 +29,12 @@ export default {
         email: email
       })
     },
-    addAdmin: function (username, name, phone, password, role) {
+    addAdmin: function (username, name, phone, email, password, role) {
       return post(Const.NET.API.USER_ADD_ADMIN, {
         username: username,
         name: name,
         phone: phone,
+        email: email,
         password: password,
         role: role
       })

@@ -50,6 +50,9 @@
                 <el-form-item prop="name" label="姓名">
                     <el-input v-model="userForm.name" placeholder="姓名"></el-input>
                 </el-form-item>
+                <el-form-item prop="name" label="E-Mail">
+                    <el-input v-model="userForm.email" placeholder="E-Mail"></el-input>
+                </el-form-item>
                 <el-form-item prop="password" label="密码">
                     <el-input type="password" placeholder="密码" v-model="userForm.password"></el-input>
                 </el-form-item>
@@ -79,6 +82,7 @@
           password: '',
           phone: '',
           name: '',
+          email: '',
           passwordChecked: ''
         }
       }
@@ -129,7 +133,7 @@
           this.$message.error('两次密码不一致!')
           return false
         }
-        Core.Api.USER.register(this.userForm.username, this.userForm.name, this.userForm.phone, this.userForm.password).then((data) => {
+        Core.Api.USER.register(this.userForm.username, this.userForm.name, this.userForm.phone, this.userForm.password, this.userForm.email).then((data) => {
           this.showRegeister = false
           this.$message.success('注册成功, 请登录')
           this.showLogin = true

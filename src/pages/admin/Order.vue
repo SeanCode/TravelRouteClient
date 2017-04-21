@@ -142,9 +142,9 @@
         }
       },
       getOrderList (page) {
-        Core.Api.ORDER.getListReceived(page).then((data) => {
+        Core.Api.ORDER.getListReceived(page - 1).then((data) => {
           this.orderList = data.order_list
-          this.currentPage = data.number
+          this.currentPage = data.number + 1
           this.total = data.totalElements
         }, (error) => {
           this.$message.error('获取订单列表失败: ' + error.message)
