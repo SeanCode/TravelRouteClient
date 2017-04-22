@@ -113,8 +113,8 @@
           }
         },
         count: 1,
-        username: Core.Data.getUser().name,
-        phone: Core.Data.getUser().phone,
+        username: '',
+        phone: '',
         note: '',
         loading: false
       }
@@ -125,6 +125,11 @@
     },
     methods: {
       createOrder () {
+        var isLogin = (Core.Data.getUser() !== undefined)
+        if (!isLogin) {
+          this.$message.error('请先登录')
+          return
+        }
         if (this.count <= 0 || this.beginDate === '') {
           this.$message.error('信息错误或不完整！')
           return
@@ -155,6 +160,17 @@
       },
       refresh () {
         this.getRouteDetail(this.$route.params.routeId)
+        this.getUserInfo()
+      },
+      getUserInfo () {
+        var user = Core.Data.getUser()
+        if (user) {
+          this.username = user.username
+          this.phone = user.phone
+        } else {
+          this.username = ''
+          this.phone = ''
+        }
       }
     },
     mounted () {

@@ -215,7 +215,7 @@
     margin-right: 6px;
     width: 26px;
     height: 26px;
-    background-image: url("../../../assets/header-sprites13@2x.png");
+    background-image: url("../../../assets/header-sprites13.png");
     background-position: 0 -50px!important;
     overflow: hidden;
     vertical-align: -7px;
